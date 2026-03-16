@@ -67,11 +67,13 @@ defineEmits(['navigate'])
 }
 
 .hero-gold-line {
-  width: 0;
+  width: 100px;
   height: 2px;
   background: linear-gradient(90deg, var(--gold), rgba(200, 168, 78, 0.2));
   margin: 14px 0 18px;
   opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
   animation: gold-line-draw 0.9s 1.1s var(--ease-out-expo) forwards;
 }
 

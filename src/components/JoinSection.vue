@@ -95,15 +95,30 @@ async function copyAddress() {
   font-weight: 700;
   border: 2px solid #c44;
   border-radius: 12px;
+  position: relative;
   transition: transform 0.35s var(--ease-out-quart), box-shadow 0.35s ease, background 0.3s ease;
+  box-shadow: 0 4px 16px var(--shadow-medium);
+}
+
+.btn-join::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow: 0 4px 28px rgba(168, 50, 50, 0.45), 0 0 48px rgba(168, 50, 50, 0.12);
   animation: cta-pulse 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .btn-join:hover {
   background: linear-gradient(180deg, #c44040, var(--red-accent));
   box-shadow: 0 8px 32px rgba(168, 50, 50, 0.5);
   transform: translateY(-3px);
+}
+
+.btn-join:hover::after {
   animation: none;
+  opacity: 0;
 }
 
 .btn-join:active {

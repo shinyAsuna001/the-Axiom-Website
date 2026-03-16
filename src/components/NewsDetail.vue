@@ -101,13 +101,16 @@ function openAnimation() {
     })
   })
 
+  let expandDone = false
   function onBgExpand(e) {
-    if (e.propertyName !== 'transform') return
+    if (e.propertyName !== 'transform' || expandDone) return
+    expandDone = true
     bg.removeEventListener('transitionend', onBgExpand)
     bg.style.willChange = ''
     d.classList.add('content-visible')
   }
   bg.addEventListener('transitionend', onBgExpand)
+  setTimeout(() => { if (!expandDone) onBgExpand({ propertyName: 'transform' }) }, 600)
 }
 
 function closeAnimation() {
@@ -137,13 +140,16 @@ function closeAnimation() {
       bg.style.transform = inv.transform
       bg.style.borderRadius = inv.borderRadius
 
+      let shrinkDone = false
       function onBgShrink(e) {
-        if (e.propertyName !== 'transform') return
+        if (e.propertyName !== 'transform' || shrinkDone) return
+        shrinkDone = true
         bg.removeEventListener('transitionend', onBgShrink)
         d.classList.remove('active', 'closing')
         bg.style.cssText = ''
       }
       bg.addEventListener('transitionend', onBgShrink)
+      setTimeout(() => { if (!shrinkDone) onBgShrink({ propertyName: 'transform' }) }, 550)
     } else {
       d.classList.remove('active', 'closing')
       bg.style.cssText = ''
@@ -151,12 +157,16 @@ function closeAnimation() {
   }
 
   if (inner) {
+    let fadeDone = false
     function onContentFade(e) {
-      if (e.target !== inner || e.propertyName !== 'opacity') return
+      if ((e.target !== inner || e.propertyName !== 'opacity') && e.type !== 'timeout') return
+      if (fadeDone) return
+      fadeDone = true
       inner.removeEventListener('transitionend', onContentFade)
       shrinkBg()
     }
     inner.addEventListener('transitionend', onContentFade)
+    setTimeout(() => { if (!fadeDone) onContentFade({ type: 'timeout' }) }, 450)
   } else {
     shrinkBg()
   }

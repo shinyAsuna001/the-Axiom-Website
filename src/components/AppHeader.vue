@@ -45,6 +45,8 @@ function getNavLinkRect(index) {
   }
 }
 
+let baseLeft = 0
+
 function positionSliderAt(index, animate) {
   const rect = getNavLinkRect(index)
   if (!rect || !sliderRef.value) return
@@ -55,13 +57,14 @@ function positionSliderAt(index, animate) {
   const slider = sliderRef.value
 
   if (!animate) {
+    baseLeft = targetLeft
     slider.className = 'nav-slider ready'
-    slider.style.left = targetLeft + 'px'
+    slider.style.transform = `translateX(${targetLeft}px)`
     slider.style.width = targetWidth + 'px'
     return
   }
 
-  const currentLeft = parseFloat(slider.style.left) || 0
+  const currentLeft = baseLeft
   const goingRight = targetLeft > currentLeft
   const stretchExtra = Math.min(Math.abs(targetLeft - currentLeft) * 0.3, 30)
 
@@ -72,13 +75,14 @@ function positionSliderAt(index, animate) {
   } else {
     const newLeft = targetLeft - stretchExtra
     const oldRight = currentLeft + parseFloat(slider.style.width)
-    slider.style.left = newLeft + 'px'
+    slider.style.transform = `translateX(${newLeft}px)`
     slider.style.width = (oldRight - newLeft) + 'px'
   }
 
   setTimeout(() => {
+    baseLeft = targetLeft
     slider.className = 'nav-slider ready settle'
-    slider.style.left = targetLeft + 'px'
+    slider.style.transform = `translateX(${targetLeft}px)`
     slider.style.width = targetWidth + 'px'
   }, 300)
 }
@@ -87,8 +91,10 @@ watch(() => props.currentPage, (newPage) => {
   positionSliderAt(newPage, true)
 })
 
+let resizeTimer = null
 function onResize() {
-  positionSliderAt(props.currentPage, false)
+  clearTimeout(resizeTimer)
+  resizeTimer = setTimeout(() => positionSliderAt(props.currentPage, false), 100)
 }
 
 onMounted(() => {
@@ -171,6 +177,7 @@ onUnmounted(() => {
 
 .nav-slider {
   position: absolute;
+  left: 0;
   height: 36px;
   border-radius: 10px;
   background: radial-gradient(ellipse at 50% 40%, rgba(240, 208, 96, 0.25), rgba(200, 168, 78, 0.12));
@@ -180,7 +187,7 @@ onUnmounted(() => {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   pointer-events: none;
   z-index: 0;
-  will-change: transform, width, border-radius;
+  will-change: transform, width;
   opacity: 0;
   transition: none;
 }
@@ -189,7 +196,7 @@ onUnmounted(() => {
 
 .nav-slider.moving {
   transition:
-    left 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     border-radius 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -199,7 +206,7 @@ onUnmounted(() => {
 
 .nav-slider.settle {
   transition:
-    left 0.3s cubic-bezier(0.34, 1.2, 0.64, 1),
+    transform 0.3s cubic-bezier(0.34, 1.2, 0.64, 1),
     width 0.3s cubic-bezier(0.34, 1.2, 0.64, 1),
     border-radius 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
   border-radius: 10px;
