@@ -157,15 +157,16 @@ onUnmounted(() => {
 }
 
 .logo-text {
-  font-size: 22px;
-  font-weight: 900;
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
+  font-size: 21px;
+  font-weight: 700;
   color: var(--text-light);
   text-shadow: 2px 2px 4px var(--shadow-heavy);
 }
 
 .logo-en {
-  font-family: 'Cinzel', serif;
-  letter-spacing: 3px;
+  font-family: 'Grenze Gotisch', 'Cinzel', serif;
+  letter-spacing: 4px;
 }
 
 .main-nav {
@@ -225,8 +226,8 @@ onUnmounted(() => {
   color: var(--parchment);
   text-decoration: none;
   padding: 8px 18px;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   border-radius: 8px;
   transition: color 0.25s ease, text-shadow 0.25s ease;
   border: 1px solid transparent;

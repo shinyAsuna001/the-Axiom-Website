@@ -302,9 +302,9 @@ const newsPages = [
   backdrop-filter: blur(12px);
   border: 1px solid rgba(200, 168, 78, 0.3);
   color: var(--parchment-light);
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Sarasa Gothic SC', sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 10px 24px;
   border-radius: 10px;
   cursor: pointer;
@@ -336,6 +336,7 @@ const newsPages = [
 }
 
 .news-detail-header h2 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 32px;
   color: var(--parchment-light);
   text-shadow: 2px 2px 8px var(--shadow-heavy);
@@ -346,7 +347,7 @@ const newsPages = [
 .news-detail-tag {
   display: inline-block;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 3px 14px;
   border-radius: 6px;
   background: var(--stone-medium);
@@ -369,8 +370,8 @@ const newsPages = [
 }
 
 .news-detail-sub {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
+  font-family: 'Grenze Gotisch', 'Cinzel', serif;
+  font-size: 15px;
   color: var(--stone-light);
   letter-spacing: 3px;
 }
@@ -457,6 +458,7 @@ const newsPages = [
 }
 
 .news-all-card h4 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 17px;
   color: var(--parchment-light);
   margin-bottom: 8px;

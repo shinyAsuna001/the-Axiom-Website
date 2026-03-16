@@ -62,6 +62,7 @@ async function copyAddress() {
 }
 
 .join-block h2 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 36px;
   color: var(--gold-bright);
   margin-bottom: 20px;
@@ -75,7 +76,7 @@ async function copyAddress() {
   font-size: 20px;
   color: var(--green-online);
   border: 1px solid var(--stone-dark);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: 'Iosevka Term Slab', 'Consolas', 'Courier New', monospace;
 }
 
 .join-version {
@@ -92,7 +93,7 @@ async function copyAddress() {
   color: #fff;
   text-decoration: none;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   border: 2px solid #c44;
   border-radius: 12px;
   position: relative;

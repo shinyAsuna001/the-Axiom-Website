@@ -66,13 +66,14 @@ const communities = [
 }
 
 .community-card h3 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 18px;
   color: var(--parchment-light);
   margin-bottom: 8px;
 }
 
 .community-card p {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--parchment-dark);
   margin-bottom: 20px;
 }
@@ -84,7 +85,7 @@ const communities = [
   color: var(--parchment-light);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   border: 1px solid var(--stone-light);
   border-radius: 10px;
   transition: transform 0.3s var(--ease-out-quart), background 0.3s ease,

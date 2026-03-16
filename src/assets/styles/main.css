@@ -3,6 +3,47 @@
    Vue Edition
    ============================ */
 
+/* ======== CUSTOM FONTS ======== */
+@font-face {
+  font-family: 'Source Han Serif CN';
+  src: url('/fonts/SourceHanSerifCN-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sarasa Gothic SC';
+  src: url('/fonts/SarasaGothicSC-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sarasa Gothic SC';
+  src: url('/fonts/SarasaGothicSC-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grenze Gotisch';
+  src: url('/fonts/GrenzeGotisch-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Iosevka Term Slab';
+  src: url('/fonts/IosevkaNTermSlab-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --wood-dark: #2a1a0e;
   --wood-medium: #4a2e14;
@@ -48,7 +89,7 @@ body::-webkit-scrollbar {
 }
 
 body {
-  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-family: 'Sarasa Gothic SC', 'Noto Serif SC', 'SimSun', sans-serif;
   background: transparent;
   color: var(--text-light);
 }
@@ -115,6 +156,7 @@ body {
 }
 
 .section-title h2 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 32px;
   color: var(--parchment-light);
   text-shadow: 2px 2px 6px var(--shadow-heavy);
@@ -136,10 +178,10 @@ body {
 }
 
 .section-subtitle {
-  font-family: 'Cinzel', serif;
-  font-size: 13px;
+  font-family: 'Grenze Gotisch', 'Cinzel', serif;
+  font-size: 14px;
   color: var(--stone-light);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* ======== REVEAL ANIMATIONS ======== */

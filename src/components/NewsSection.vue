@@ -94,15 +94,16 @@ function openNews(e, newsId) {
 }
 
 .featured-title {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--parchment-light);
   text-shadow: 2px 2px 6px var(--shadow-heavy);
   line-height: 1.4;
 }
 
 .featured-desc {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
   color: var(--parchment);
   opacity: 0.85;
@@ -121,7 +122,7 @@ function openNews(e, newsId) {
   text-decoration: none;
   text-align: center;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1px;
   border: 1px solid rgba(200, 168, 78, 0.3);
   border-radius: 10px;
@@ -227,7 +228,7 @@ function openNews(e, newsId) {
   text-decoration: none;
   text-align: center;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1px;
   border: 1px solid rgba(200, 168, 78, 0.3);
   border-radius: 10px;

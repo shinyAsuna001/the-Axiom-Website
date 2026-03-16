@@ -56,8 +56,9 @@ defineEmits(['navigate'])
 }
 
 .hero-content h1 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 48px;
-  font-weight: 900;
+  font-weight: 700;
   color: #fff;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 30px rgba(200, 168, 78, 0.2);
   margin-bottom: 0;
@@ -78,7 +79,7 @@ defineEmits(['navigate'])
 }
 
 .hero-subtitle {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--parchment-light);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 16px;
@@ -107,10 +108,10 @@ defineEmits(['navigate'])
   background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
   color: var(--parchment-light);
   text-decoration: none;
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-family: 'Grenze Gotisch', 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 4px;
   border: 2px solid var(--wood-highlight);
   border-radius: 10px;
   transition: transform 0.35s var(--ease-out-quart), box-shadow 0.35s ease, background 0.3s ease;

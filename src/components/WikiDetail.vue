@@ -301,9 +301,9 @@ const wikiPages = [
   backdrop-filter: blur(12px);
   border: 1px solid rgba(200, 168, 78, 0.3);
   color: var(--parchment-light);
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Sarasa Gothic SC', sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 10px 24px;
   border-radius: 10px;
   cursor: pointer;
@@ -335,6 +335,7 @@ const wikiPages = [
 }
 
 .wiki-detail-header h2 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 36px;
   color: var(--parchment-light);
   text-shadow: 2px 2px 8px var(--shadow-heavy);
@@ -342,8 +343,8 @@ const wikiPages = [
 }
 
 .wiki-detail-sub {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
+  font-family: 'Grenze Gotisch', 'Cinzel', serif;
+  font-size: 15px;
   color: var(--stone-light);
   letter-spacing: 3px;
 }
@@ -392,7 +393,7 @@ const wikiPages = [
 .wiki-rarity {
   display: inline-block;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 2px 10px;
   border-radius: 6px;
   margin-bottom: 10px;
@@ -419,7 +420,8 @@ const wikiPages = [
 
 /* ======== ENTRY TEXT ======== */
 .wiki-entry h4 {
-  font-size: 18px;
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
+  font-size: 17px;
   color: var(--parchment-light);
   margin-bottom: 6px;
   text-shadow: 1px 1px 2px var(--shadow-heavy);
@@ -429,7 +431,7 @@ const wikiPages = [
   font-size: 13px;
   color: var(--gold);
   margin-bottom: 8px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .wiki-entry-desc {

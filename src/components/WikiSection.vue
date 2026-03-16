@@ -124,6 +124,7 @@ function openCard(e, wikiId) {
 }
 
 .wiki-card h3 {
+  font-family: 'Source Han Serif CN', 'Noto Serif SC', serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--parchment-light);
@@ -131,7 +132,7 @@ function openCard(e, wikiId) {
 }
 
 .wiki-card p {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--parchment-dark);
   text-align: center;
   line-height: 1.5;
