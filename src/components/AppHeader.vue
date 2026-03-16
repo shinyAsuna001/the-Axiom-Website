@@ -28,7 +28,7 @@ const props = defineProps({
 
 defineEmits(['navigate'])
 
-const navItems = ['首页', '玩法', '百科', '公告', '社区', '加入']
+const navItems = ['首页', '百科', '公告', '社区', '加入']
 const navRef = ref(null)
 const sliderRef = ref(null)
 

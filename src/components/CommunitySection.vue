@@ -10,7 +10,7 @@
           <div class="community-icon">{{ item.icon }}</div>
           <h3>{{ item.name }}</h3>
           <p>{{ item.desc }}</p>
-          <a href="#" class="btn-community">{{ item.action }}</a>
+          <a :href="item.link || '#'" target="_blank" rel="noopener" class="btn-community">{{ item.action }}</a>
         </div>
       </div>
     </div>
@@ -21,9 +21,9 @@
 defineProps({ active: Boolean })
 
 const communities = [
-  { icon: '💬', name: 'Discord', desc: '加入我们的Discord社区', action: '加入' },
-  { icon: '📺', name: 'Bilibili', desc: '观看精彩视频内容', action: '关注' },
-  { icon: '📱', name: 'QQ群', desc: '加入QQ交流群', action: '加入' }
+  { icon: '💬', name: 'OOPZ', desc: '加入我们的OOPZ社区', action: '加入', link: 'https://oopz.cn/i/kwccXx' },
+  { icon: '📺', name: 'Bilibili', desc: '观看精彩视频内容', action: '关注', link: 'https://space.bilibili.com/430830142?spm_id_from=333.337.0.0' },
+  { icon: '📱', name: 'QQ群', desc: '加入QQ交流群', action: '加入', link: 'https://qm.qq.com/q/UlucWzh8Ki' }
 ]
 </script>
 

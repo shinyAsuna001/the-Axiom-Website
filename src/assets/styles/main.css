@@ -218,6 +218,78 @@ body {
   opacity: 0.6;
 }
 
+/* ======== iOS Squircle Corners (Continuous Corners) ======== */
+.squircle-ready .btn-order,
+.squircle-ready .btn-community,
+.squircle-ready .btn-join,
+.squircle-ready .wiki-card,
+.squircle-ready .wiki-entry,
+.squircle-ready .wiki-rarity,
+.squircle-ready .wiki-detail-back,
+.squircle-ready .community-card,
+.squircle-ready .news-featured,
+.squircle-ready .news-list-panel,
+.squircle-ready .news-item,
+.squircle-ready .news-tag,
+.squircle-ready .join-block,
+.squircle-ready .join-block code,
+.squircle-ready .nav-link,
+.squircle-ready .btn-detail,
+.squircle-ready .btn-all-news,
+.squircle-ready .news-detail-back,
+.squircle-ready .news-detail-tag,
+.squircle-ready .news-all-card {
+  -webkit-mask-image: paint(squircle);
+  mask-image: paint(squircle);
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
+.squircle-ready .wiki-rarity,
+.squircle-ready .news-tag,
+.squircle-ready .news-detail-tag { --squircle-radius: 6; }
+
+.squircle-ready .nav-link,
+.squircle-ready .join-block code { --squircle-radius: 8; }
+
+.squircle-ready .btn-order,
+.squircle-ready .btn-community,
+.squircle-ready .btn-detail,
+.squircle-ready .btn-all-news,
+.squircle-ready .news-item,
+.squircle-ready .wiki-detail-back,
+.squircle-ready .news-detail-back { --squircle-radius: 10; }
+
+.squircle-ready .btn-join { --squircle-radius: 12; }
+
+.squircle-ready .wiki-card,
+.squircle-ready .news-featured,
+.squircle-ready .news-list-panel,
+.squircle-ready .wiki-entry,
+.squircle-ready .news-all-card { --squircle-radius: 14; }
+
+.squircle-ready .community-card { --squircle-radius: 16; }
+
+.squircle-ready .join-block { --squircle-radius: 20; }
+
+/* ── Edge: disable squircle mask on interactive elements (paint + transform bug) ── */
+.squircle-edge .btn-order,
+.squircle-edge .btn-community,
+.squircle-edge .btn-join,
+.squircle-edge .btn-detail,
+.squircle-edge .btn-all-news,
+.squircle-edge .wiki-card,
+.squircle-edge .wiki-entry,
+.squircle-edge .wiki-detail-back,
+.squircle-edge .nav-link,
+.squircle-edge .news-item,
+.squircle-edge .news-detail-back,
+.squircle-edge .news-all-card,
+.squircle-edge .community-card {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
 /* ======== RESPONSIVE (global) ======== */
 @media (max-width: 640px) {
   .fp-center {

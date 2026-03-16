@@ -6,7 +6,8 @@
       <h1>欢迎来到公理的世界</h1>
       <div class="hero-gold-line"></div>
       <p class="hero-subtitle">探索科技与魔法的完美融合，书写属于你的传说</p>
-      <a href="#" class="btn-order" @click.prevent="$emit('navigate', 5)">Order</a>
+      <p class="hero-lore">力量在混沌中诞生，秩序由公理所守护。<br>当虚空的裂隙再次开启，唯有掌握科技与魔法的勇者，方能重铸世界的平衡。</p>
+      <a href="#" class="btn-order" @click.prevent="$emit('navigate', 4)">Order</a>
     </div>
     <div class="scroll-hint">
       <span class="scroll-hint-text">向下滚动</span>
@@ -78,11 +79,24 @@ defineEmits(['navigate'])
   font-size: 17px;
   color: var(--parchment-light);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   max-width: 500px;
   opacity: 0;
   transform: translateY(24px) scale(0.97);
   animation: hero-fade-in 1s 0.65s var(--ease-out-expo) forwards;
+}
+
+.hero-lore {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--parchment-dark);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-style: italic;
+  max-width: 460px;
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: hero-fade-in 1s 0.8s var(--ease-out-expo) forwards;
 }
 
 .btn-order {

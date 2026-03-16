@@ -5,17 +5,16 @@
 
   <AppHeader
     :current-page="currentPage"
-    :header-hidden="wikiOpen"
+    :header-hidden="wikiOpen || newsOpen"
     @navigate="goToPage"
   />
 
   <div class="fullpage-wrapper" ref="wrapperRef">
     <HeroSection :active="visiblePage === 0" @navigate="goToPage" />
-    <GameplaySection :active="visiblePage === 1" />
-    <WikiSection :active="visiblePage === 2" :wiki-open="wikiOpen" @open-wiki="handleOpenWiki" />
-    <NewsSection :active="visiblePage === 3" />
-    <CommunitySection :active="visiblePage === 4" />
-    <JoinSection :active="visiblePage === 5" />
+    <WikiSection :active="visiblePage === 1" :wiki-open="wikiOpen" @open-wiki="handleOpenWiki" />
+    <NewsSection :active="visiblePage === 2" :news-open="newsOpen" @open-news="handleOpenNews" />
+    <CommunitySection :active="visiblePage === 3" />
+    <JoinSection :active="visiblePage === 4" />
   </div>
 
   <WikiDetail
@@ -24,20 +23,27 @@
     :open="wikiOpen"
     @close="closeWiki"
   />
+
+  <NewsDetail
+    :active-news="activeNews"
+    :card-rect="savedNewsRect"
+    :open="newsOpen"
+    @close="closeNews"
+  />
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import AppHeader from './components/AppHeader.vue'
 import HeroSection from './components/HeroSection.vue'
-import GameplaySection from './components/GameplaySection.vue'
 import WikiSection from './components/WikiSection.vue'
 import NewsSection from './components/NewsSection.vue'
 import CommunitySection from './components/CommunitySection.vue'
 import JoinSection from './components/JoinSection.vue'
 import WikiDetail from './components/WikiDetail.vue'
+import NewsDetail from './components/NewsDetail.vue'
 
-const TOTAL_PAGES = 6
+const TOTAL_PAGES = 5
 const TRANSITION_MS = 900
 const COOLDOWN_MS = 1000
 const BLUR_PER_PAGE = 6
@@ -50,6 +56,10 @@ const isAnimating = ref(false)
 const wikiOpen = ref(false)
 const activeWiki = ref(null)
 const savedCardRect = ref(null)
+
+const newsOpen = ref(false)
+const activeNews = ref(null)
+const savedNewsRect = ref(null)
 
 const wrapperRef = ref(null)
 const bgImageRef = ref(null)
@@ -90,10 +100,20 @@ function closeWiki() {
   wikiOpen.value = false
 }
 
+function handleOpenNews(newsId, cardRect) {
+  activeNews.value = newsId
+  savedNewsRect.value = cardRect
+  newsOpen.value = true
+}
+
+function closeNews() {
+  newsOpen.value = false
+}
+
 let wheelAccum = 0
 function onWheel(e) {
   e.preventDefault()
-  if (isAnimating.value || wikiOpen.value) return
+  if (isAnimating.value || wikiOpen.value || newsOpen.value) return
   wheelAccum += e.deltaY
   if (Math.abs(wheelAccum) >= WHEEL_THRESHOLD) {
     goToPage(wheelAccum > 0 ? currentPage.value + 1 : currentPage.value - 1)
@@ -102,6 +122,10 @@ function onWheel(e) {
 }
 
 function onKeydown(e) {
+  if (newsOpen.value) {
+    if (e.key === 'Escape') closeNews()
+    return
+  }
   if (wikiOpen.value) {
     if (e.key === 'Escape') closeWiki()
     return
@@ -135,7 +159,7 @@ function onTouchStart(e) {
   touchStartY = e.changedTouches[0].screenY
 }
 function onTouchEnd(e) {
-  if (isAnimating.value || wikiOpen.value) return
+  if (isAnimating.value || wikiOpen.value || newsOpen.value) return
   const diff = touchStartY - e.changedTouches[0].screenY
   if (Math.abs(diff) > SWIPE_THRESHOLD) {
     goToPage(diff > 0 ? currentPage.value + 1 : currentPage.value - 1)
